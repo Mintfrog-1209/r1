@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+function Caster({name, picture}){
+  return (
+    <div>
+      <div> name : {name}</div>
+      <img src= {picture}/>
+    </div> 
+  );
+}
+const casters = [
+  {
+    name : '駒木結衣',
+    image : 
+      "https://pbs.twimg.com/media/EiFGds2UwAAQQak?format=jpg&name=large"
+  },
+  {
+    name : "檜山沙耶",
+    image :
+      "https://pbs.twimg.com/media/Ez0wBFfVUAYDpmt?format=jpg&name=large"
+  },
+  {
+    name : "武藤彩芽",
+    image :
+      "https://pbs.twimg.com/media/E1R5DXiVoAYBWqc?format=jpg&name=medium"
+  }
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {casters.map(caster => (
+        <Caster name={caster.name} picture ={caster.image} />
+      ))}
     </div>
   );
 }
